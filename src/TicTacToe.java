@@ -12,9 +12,6 @@ public class TicTacToe {
             {{'_','_','_'},
             {'_','_','_'},
             {'_','_','_'}};
-
-
-
     private static void printGameBoard(){
 
         for(char[] row : gameBoard){
