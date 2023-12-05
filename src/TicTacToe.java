@@ -4,6 +4,11 @@ import java.util.Scanner;
 import java.util.Scanner;
 
 public class TicTacToe {
+    private static Scanner scanner = new Scanner(System.in);
+    private static String player1 = "";
+    private static String player2 = "";
+    private static String roundPlayer = "";
+    private static int roundNum = 0;
 
     static char[][] gameBoard =
             {{'_','_','_'},
@@ -19,25 +24,24 @@ public class TicTacToe {
 
         System.out.print("Welcome to a game of Tic Tac Toe");
         System.out.print("\nWhat is the name of player 1: ");
-        String player1 = scanner.nextLine();
+        player1 = scanner.nextLine();
         System.out.print("\nWhat is the name of player 2: ");
-        String player2 = scanner.nextLine();
+        player2 = scanner.nextLine();
         System.out.printf("Round 1 is about to start. \n%s will mark the board with X and %s will mark with O. \n%s will begin", player1, player2, player1);
 
 
     }//End void main
-
-    private static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args){
-        printGameBoard();
-        //Random comment
-    }
-    private static void printGameBoard(){
-
-        for(char[] row : gameBoard){
-
-          System.out.println(Arrays.toString(row));
+    private static void roundPlay() {
+        if (roundNum % 2 == 0) {
+            roundPlayer = player2;
+        } else {
+            roundPlayer = player1;
         }
-    }
+        System.out.printf("%s your turn to play.\nWhich row do you choose: ", roundPlayer);
+        int rowIndex = scanner.nextInt();
+        System.out.print("Which column do you choose: ");
+        int columnIndex = scanner.nextInt();
 
+
+    }
 }//End of TicTacToe
