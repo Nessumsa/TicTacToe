@@ -14,6 +14,7 @@ public class TicTacToe {
             {{'_','_','_'},
             {'_','_','_'},
             {'_','_','_'}};
+    private static void printGameBoard(){
 
 
     /**
@@ -29,6 +30,9 @@ public class TicTacToe {
         player2 = scanner.nextLine();
         System.out.printf("Round 1 is about to start. \n%s will mark the board with X and %s will mark with O. \n%s will begin", player1, player2, player1);
 
+        printGameBoard();
+
+        roundPlay();
 
     }//End void main
     private static void roundPlay() {
@@ -54,6 +58,20 @@ public class TicTacToe {
     }//End void main
 
     private static Scanner scanner = new Scanner(System.in);
+        if (roundNum%2 == 1) {
+            gameBoard[rowIndex-1][columnIndex-1] = 'X';
+            printGameBoard();
+        }
+        else{
+            gameBoard[rowIndex-1][columnIndex-1] = 'O';
+            printGameBoard();
+        }
+        if (roundNum >= 6){
+            System.out.print("The game is over");
+            System.exit(0);
+        }
+        roundNum ++;
+        roundPlay();
 
     private static void printGameBoard(){
         for (int i = 0; i < gameBoard.length; i++) {
@@ -61,6 +79,7 @@ public class TicTacToe {
                 System.out.print(gameBoard[i][j] + " ");
             }
             System.out.println();
+    }//End roundPlay
 
         }
 
